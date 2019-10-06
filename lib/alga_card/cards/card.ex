@@ -11,6 +11,7 @@ defmodule AlgaCard.Cards.Card do
   def changeset(%Card{} = card, args \\ %{}) do
     card
     |> cast(args, [:number, :user_id])
-    |> validate_required([:number_id, :user_id])
+    |> validate_required([:number, :user_id])
+    |> unique_constraint(:number, name: :cards_user_id_number_index)
   end
 end

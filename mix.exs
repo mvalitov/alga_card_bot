@@ -23,7 +23,10 @@ defmodule AlgaCard.MixProject do
   defp deps do
     [
       {:ecto_sql, "~> 3.0"},
-      {:postgrex, ">= 0.15.1"}
+      {:postgrex, ">= 0.15.1"},
+      {:agala_telegram, "~> 0.1.2"},
+      {:jason, "~> 1.0"},
+      {:httpoison, "~> 1.6", override: true}
     ]
   end
 end

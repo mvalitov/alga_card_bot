@@ -7,8 +7,11 @@ defmodule AlgaCard.Application do
 
   def start(_type, _args) do
     # List all child processes to be supervised
+    :ets.new(:users_states, [:set, :public, :named_table])
+
     children = [
-      AlgaCard.Repo
+      AlgaCard.Repo,
+      {Agala.Bot, AlgaCard.BotConfig.get()}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
